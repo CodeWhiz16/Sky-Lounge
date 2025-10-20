@@ -1,0 +1,362 @@
+body {
+  margin: 0;
+  background-color: #000;
+}
+.about-section {
+  background-color: #000; /* dark theme background */
+  margin-top: 5rem;
+}
+
+.about-subtitle {
+  color: #4f46e5;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.about-title .outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px  #818cf8;;
+}
+
+.about-description {
+  color: #ccc;
+  font-size: 1rem;
+  max-width: 90%;
+}
+
+.about-image img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-image.bottom-image img {
+  height: 250px;
+  object-position: center;
+}
+
+/* --- NEW Our Story Section Styles --- */
+.our-story-section {
+    background-color: black; 
+    padding: 6rem 0; 
+    text-align: left;
+}
+
+.our-story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns for image and text */
+    gap: 3rem; /* Space between columns */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Container padding */
+    align-items: center; /* Vertically center content in the grid cells */
+}
+
+.our-story-image-column img {
+    width: 100%;
+    height: 600px; /* Fixed height for the main image */
+    object-fit: cover;
+    border-radius: 8px; /* Consistent rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.our-story-text-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center text content */
+}
+
+.our-story-subtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color:#4f46e5; 
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.our-story-title {
+    font-size: 3.5rem; 
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem; /* Space before description */
+}
+
+.our-story-title-outline {
+    color: transparent; 
+    -webkit-text-stroke: 2px  #818cf8; 
+    /* text-wrap-style: 2px ; */
+    display: inline-block; 
+}
+
+.our-story-description {
+    font-size: 1rem;
+    line-height: 1.6; 
+    font-weight: 300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .our-story-grid {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        gap: 2rem;
+        /* --- ADD THESE TWO LINES FOR MOBILE ORDERING --- */
+        grid-template-areas:
+            "text-area"
+            "image-area";
+        /* --- END ADDITION --- */
+    }
+    
+    /* --- ADD THESE NEW RULES TO ASSIGN AREAS --- */
+    .our-story-image-column {
+        grid-area: image-area;
+    }
+    .our-story-text-column {
+        grid-area: text-area;
+    }
+    /* --- END NEW RULES --- */
+
+    .our-story-image-column img {
+        height: 400px; /* Adjust height for medium screens */
+    }
+    .our-story-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .our-story-image-column img {
+        height: 300px; /* Adjust height for mobile screens */
+    }
+    .our-story-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* --- NEW Security Measures Section Styles --- */
+.security-section {
+    background-color: black; 
+    padding: 6rem 0; 
+    color: var(--text-light); 
+    text-align: center; /* Center header content */
+}
+
+.security-header {
+    margin-bottom: 4rem; /* Space before the grid of cards */
+    padding: 0 1.5rem; 
+    max-width: 800px; /* Constrain header width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.security-subtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #4f46e5; 
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.security-title {
+    font-size: 3.5rem; 
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0; 
+}
+
+.security-grid {
+    display: grid;
+    /* 3 columns on desktop, responsive down to 1 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem; 
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 0 1.5rem; 
+}
+
+.security-card {
+    background-color: #1a1a1a; /* Darker card background */
+    padding: 2.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid #1a1a1a; /* Subtle border for definition, matches background normally */
+    text-align: left; /* Text content left-aligned as per image */
+}
+
+.security-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); 
+    border-color: #4f46e5; /* Deeper indigo/violet border on hover */
+}
+
+.security-icon {
+    margin-bottom: 1.5rem;
+    
+}
+.security-card:hover .security-icon {
+    color: #818cf8;
+}
+
+.security-card-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #4f46e5;
+    margin-bottom: 1rem;
+}
+
+.security-card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted); 
+    font-weight: 300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .security-title {
+        font-size: 3rem;
+    }
+    .security-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .security-title {
+        font-size: 2.5rem;
+    }
+    .security-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        padding: 0 1rem;
+    }
+    .security-card {
+        padding: 2rem;
+    }
+}
+
+/* --- NEW Meet Our DJ's Section Styles --- */
+.djs-section {
+  background-color: black;
+  padding: 6rem 0;
+  color: var(--text-light);
+}
+
+.djs-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1.5rem;
+}
+
+.djs-subtitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #4f46e5;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.djs-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0;
+}
+
+.djs-title-outline {
+  color:white;
+  display: inline-block;
+}
+.djs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.dj-card {
+  position: relative;
+  width: 100%;
+  height: 280px; /* Smaller height */
+  border-radius: 12px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dj-info {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.dj-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.dj-country {
+  font-size: 0.8rem;
+  color: #818cf8;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.dj-socials a {
+  color: var(--text-light);
+  margin: 0 0.5rem;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.dj-socials a:hover {
+  color: #e81395;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .djs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dj-card {
+    height: 240px;
+  }
+
+  .dj-name {
+    font-size: 1.2rem;
+  }
+
+  .dj-country {
+    font-size: 0.75rem;
+  }
+
+  .dj-socials a {
+    font-size: 1rem;
+  }
+}

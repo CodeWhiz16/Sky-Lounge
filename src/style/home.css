@@ -1,0 +1,493 @@
+/* --- CSS Custom Properties (Variables) for the Indigo/Charcoal Theme --- */
+:root {
+    --dark-bg: #111827;/* Deep charcoal (bg-gray-900) */
+    --card-bg: #1f2937; /* Slate gray (bg-gray-800) */
+    --accent-indigo: #818cf8; /* Primary accent (indigo-400) */
+    --cta-bg: #4f46e5;  /* CTA background (indigo-600) */
+    --text-light: #f0f0f0;
+    --text-muted: #9ca3af;
+    --neon-glow: 0 0 10px var(--accent-indigo), 0 0 20px var(--accent-indigo);
+}
+
+/* Base Styles */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+}
+/* --- Hero Section Styling --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--text-light);
+}
+
+.hero-headline {
+    font-size: 4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    text-shadow: 0 0 15px rgba(129, 140, 248, 0.5);
+}
+
+.cta-button {
+    background-color: var(--cta-bg) !important;
+    border-color: var(--cta-bg) !important;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #6366f1 !important;
+    border-color: #6366f1 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+}
+
+.video-control-button {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border-color: var(--text-light) !important;
+    color: var(--text-light) !important;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.video-control-button:hover {
+    background-color: var(--accent-indigo) !important;
+    border-color: var(--accent-indigo) !important;
+    box-shadow: 0 0 10px var(--accent-indigo);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .hero-headline {
+        font-size: 3rem;
+    }
+    .cta-button {
+        width: 100%;
+        margin-right: 0 !important;
+    }
+    .video-control-button {
+        margin-top: 1rem;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+/* --- Introduction Section Styles (Banner Look with BG Image) --- */
+.intro-section {
+    /* Background image and its properties */
+    background-image: url('../assets/event/background.png'); /* !!! IMPORTANT: REPLACE WITH YOUR IMAGE PATH !!! */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax scrolling effect */
+
+    /* Overlay for text readability */
+    position: relative;
+    z-index: 0; 
+
+    /* Sizing and Alignment */
+    min-height: 50vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Text Style */
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem 1rem; 
+}
+
+/* New overlay specifically for the intro-section background image */
+.intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for better text contrast */
+    z-index: 1; /* Below the content */
+}
+
+/* Ensure content is above the overlay */
+.intro-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.intro-heading {
+    font-size: 3rem; 
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var( --text-light);
+    letter-spacing: 0.15em;
+    /* text-shadow: 0 0 10px rgba(129, 140, 248, 0.5);  */
+    margin-bottom: 1rem;
+}
+.brand{
+    color: var(--cta-bg);
+
+}
+
+
+/* --- NEW Upcoming Events Section Styles --- */
+.events-section {
+    background-color:black; /* Light background to contrast with dark sections */
+    padding: 3rem 0;
+    color: var(--dark-bg);
+}
+
+.events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    
+    margin-bottom: 5rem;
+    padding: 0 1rem; /* Adjust padding for container */
+    text-align: center;
+    flex-direction: column; 
+    
+}
+
+.section-title {
+    /* font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: white; */
+      font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0; 
+}
+.see-event {
+    text-align: center;
+    margin-top: 1rem;
+}
+.see-all-link {
+    font-family:  'Inter', sans-serif;
+    color:var( --accent-indigo);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid var(--dark-bg);
+    padding-bottom: 2px;
+    transition: color 0.3s;
+}
+
+.see-all-link:hover {
+    color: var(--accent-indigo);
+    border-bottom-color: var(--accent-indigo);
+}
+
+/* Carousel/Horizontal Scroll Styling */
+.events-carousel {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding: 0 1rem 1.5rem 1rem; /* Padding for scroll visibility and spacing */
+    gap: 1.5rem;
+    -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+    /* Hide scrollbar, but keep functionality */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.events-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual Card Wrapper */
+.event-card-wrapper {
+    flex: 0 0 auto; /* Prevents cards from shrinking */
+    width: 300px; /* Fixed width for card */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.event-card-wrapper:hover {
+    /* transform: translateY(-5px); Lift effect on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Event Card Content */
+.event-card {
+    background-color: var(--dark-bg);
+    border-radius: 5px;
+    overflow: hidden;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.event-card-bg {
+    width: 100%;
+    height: 400px; 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.3s ease-in-out;
+}
+
+.event-card-wrapper:hover {
+    /* .event-card-bg  */
+    transform: scale(1.03); 
+}
+
+.event-card-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.event-info {
+    text-align: left;
+}
+
+.event-day {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--accent-indigo);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.event-artist {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.event-card-wrapper:hover .event-artist {
+    color: var(--accent-indigo);
+}
+
+.event-set {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-light);
+    display: block;
+}
+
+.event-book-button {
+    width: 100%;
+    border: none;
+    background-color: black !important;
+    color: white !important;
+    font-weight: 700;
+    padding: 1rem 0;
+    border-radius:5px;
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid var(--accent-indigo)  ;
+}
+
+.event-book-button:hover {
+    background-color: var(--accent-indigo) !important;
+    color:black !important;
+}
+
+/* Responsive adjustments for the event cards */
+@media (max-width: 600px) {
+    .event-card-wrapper {
+        width: 80vw; /* Takes 80% of viewport width on small screens */
+    }
+}
+
+/* --- our services--- */
+
+.services-section {
+    background-color: black; 
+    padding: 6rem 0; 
+    color: var(--text-light); 
+    text-align: left; 
+}
+
+.services-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 3rem; 
+    padding: 0 1.5rem; 
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap; 
+    gap: 1.5rem; /* Space between text block and button if they wrap */
+    
+}
+
+.services-header-text { 
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+}
+
+.services-subtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #818cf8; /* Pink color from image */
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.services-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0; 
+}
+
+.buy-tickets-button {
+    background: #818cf8 !important; /* Solid pink background for button */
+    border: none !important;
+    color: white !important;
+    font-weight: 700;
+    padding: 0.8rem 1.5rem; 
+    border-radius: 5px; 
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buy-tickets-button:hover {
+    background-color:  #98a1ef !important; /* Lighter pink on hover */
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(84, 177, 238, 0.619); 
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    gap: 1.5rem; 
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 0 1.5rem; 
+}
+
+.service-card {
+    background-color: #1a1a1a; /* Darker card background */
+    padding: 2.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); 
+}
+
+.service-icon {
+    margin-bottom: 1.5rem;
+}
+
+.service-icon svg {
+    width: 64px; 
+    height: 64px;
+    color: #e81395; /* Pink stroke for icons */
+    stroke-width: 1.5; 
+}
+
+.service-card-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.service-card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted); 
+    font-weight: 300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) { 
+    .services-header {
+        flex-direction: column; 
+        align-items: flex-start;
+        margin-bottom: 3rem;
+    }
+    .services-title {
+        font-size: 2.2rem;
+    }
+    .buy-tickets-button {
+        width: 100%; 
+        margin-top: 2rem;
+    }
+    .services-grid {
+        grid-template-columns: 1fr; 
+        padding: 0 1rem; 
+    }
+    .service-card {
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,171 @@
+/* --- CSS Custom Properties (Variables) remain for consistency --- */
+:root {
+    --dark-bg: #111827;
+    --card-bg: #1f2937;
+    --accent-indigo: #818cf8; /* Primary accent (indigo-400) */
+    --cta-bg: #4f46e5; /* CTA background (indigo-600) */
+    --text-light: #f0f0f0;
+    --text-muted: #9ca3af;
+    --neon-glow: 0 0 10px var(--accent-indigo), 0 0 20px var(--accent-indigo);
+    --zouk-menu-bg: #0d0d0d; /* Slightly darker than dark-bg for mobile menu */
+}
+
+/* Base Navbar Styles */
+.app-navbar {
+    background-color: transparent !important; /* Make it transparent */
+    transition: background-color 0.3s ease-in-out;
+    padding: 1.5rem 0; /* Add some vertical padding */
+    backdrop-filter: blur(5px); /* Optional: add a subtle blur effect */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+
+/* Sky Lounge Text Logo Styles */
+.skylounge-text-logo {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    line-height: 1;
+}
+
+/* Desktop Navigation Links */
+.app-navbar .nav-item {
+    color: var(--text-light) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.5rem 1.2rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.app-navbar .nav-item:hover {
+    color: var(--accent-indigo) !important;
+}
+
+.app-navbar .dropdown-nav-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile Toggler (Burger Icon) */
+.app-navbar .menu-toggler {
+    border: none;
+    padding: 0;
+    font-size: 1.5rem;
+}
+.app-navbar .menu-toggler:focus {
+    box-shadow: none;
+}
+
+/* --- Offcanvas Mobile Menu Styles (Based on Reference Image) --- */
+.mobile-offcanvas {
+    background-color: var(--zouk-menu-bg); /* Dark background for mobile menu */
+    width: 100%; /* Full screen width for mobile menu */
+    max-width: 100%; /* Ensure it takes full width */
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column; 
+    padding: 1rem; 
+}
+
+.mobile-offcanvas-header {
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Sky Lounge Text Logo in Mobile Header */
+.mobile-offcanvas-header .mobile-header-logo {
+    font-size: 1.25rem; /* Slightly smaller for the header */
+    font-weight: 700;
+    color: var(--accent-indigo); /* Giving it a subtle accent color */
+}
+
+.mobile-offcanvas .close-offcanvas-btn {
+    color: var(--text-light); 
+    font-size: 1.5rem;
+    opacity: 1; 
+}
+.mobile-offcanvas .close-offcanvas-btn:hover {
+    color: var(--accent-indigo);
+}
+
+.mobile-offcanvas-body {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.mobile-offcanvas .mobile-nav-links .nav-item-mobile {
+    color: var(--text-light) !important;
+    font-size: 1.8rem; 
+    font-weight: 400; 
+    text-transform: uppercase;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-offcanvas .mobile-nav-links .nav-item-mobile:hover {
+    color: var(--accent-indigo) !important;
+}
+
+/* Mobile Footer Links (Contact Us, News, Artists) */
+.mobile-footer-links {
+    margin-top: auto; 
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.mobile-footer-links .nav-link {
+    color: var(--text-muted) !important;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding: 0.4rem 0;
+    transition: color 0.3s ease;
+}
+
+.mobile-footer-links .nav-link:hover {
+    color: var(--accent-indigo) !important;
+}
+
+.social-icons-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Styling for placeholder text social links */
+.social-icons-mobile a {
+    color: var(--text-light) !important;
+    opacity: 0.7;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.social-icons-mobile a:hover {
+    opacity: 1;
+    color: var(--accent-indigo) !important;
+}
+
+/* Media Queries remain unchanged */
+@media (max-width: 991.98px) { 
+    .app-navbar .skylounge-text-logo { /* Hide desktop logo on mobile */
+        display: none !important;
+    }
+}
+@media (min-width: 992px) { 
+    .mobile-offcanvas {
+        visibility: hidden; 
+    }
+}
