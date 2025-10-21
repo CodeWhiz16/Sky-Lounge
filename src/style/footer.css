@@ -1,0 +1,181 @@
+
+
+:root {
+    --color-black-primary: #000000;
+    --text-light: #f3f4f6; 
+    --text-muted: #9ca3af; 
+    --accent-indigo: #4f46e5; 
+    --accent-pink: #818cf8;
+}
+
+.sky-lounge-footer {
+    background-color: var(--color-black-primary); 
+    color: var(--text-muted); 
+    padding: 4rem 0 2rem 0; 
+    border-top: 5px solid var(--accent-indigo); /* Top line matching the theme */
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-col {
+    margin-bottom: 2rem;
+}
+
+/* --- Logo/Brand Column --- */
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-light); /* White/light color for the brand */
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.footer-slogan {
+    font-size: 1rem;
+    color: var(--accent-pink); /* Pink accent color */
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Social Icons --- */
+.footer-socials a {
+   
+    color: var(--text-muted); 
+    margin-right: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.footer-socials a:hover {
+    color: var(--accent-indigo); 
+    transform: translateY(-3px);
+}
+
+
+/* --- Link Columns --- */
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+/* Underline effect for headings */
+.footer-heading::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--accent-pink);
+    margin-top: 5px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.7rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--accent-indigo);
+}
+
+/* --- Contact Column --- */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+.contact-icon {
+
+    color: var(--accent-pink);
+    margin-right: 0.75rem;
+    margin-top: 3px; 
+    flex-shrink: 0;
+}
+
+.contact-item a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--accent-indigo);
+}
+
+.footer-hours h6 {
+    color: var(--text-light);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+/* --- Bottom Row --- */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.footer-bottom p {
+    margin: 0.25rem 0;
+}
+
+.powered-by {
+    color: var(--accent-indigo);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .footer-col {
+        text-align: center;
+    }
+    .footer-brand-col, .footer-contact-col {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .footer-brand-col .footer-logo, 
+    .footer-brand-col .footer-slogan {
+        text-align: center;
+    }
+    .footer-socials {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .footer-socials a {
+        margin: 0 0.5rem;
+    }
+    .footer-heading::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer-links {
+        padding: 0; 
+        list-style-position: inside;
+        text-align: center;
+    }
+    .footer-links li {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+}

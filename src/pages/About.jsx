@@ -4,7 +4,7 @@ import { FaShieldAlt, FaVideo, FaMedkit, FaSearch, FaHandSparkles, FaFireExtingu
 import { FaFacebookF, FaYoutube, FaSoundcloud, FaGlobe } from 'react-icons/fa';
 import '../style/about.css';
 import Navbar from '../componentS/header';
-
+import Footer from  '../components/footer';
 //images//
 import ourStoryImage from '../assets/event/Aboutstory.png';
 import djZeeImage from '../assets/DJs/dj1.png'; 
@@ -40,7 +40,7 @@ const AboutSection = () => {
 ]
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <section className="about-section text-light py-5">
       <Container>
         <Row className="align-items-center">
@@ -48,7 +48,7 @@ const AboutSection = () => {
           <Col lg={6} className="mb-4 mb-lg-0">
             <p className="about-subtitle mb-2">ABOUT US</p>
             <h1 className="about-title">
-              WELCOME TO <span className="outline-text">SKY LOUNGE</span>
+              WELCOME TO <br/><span className="outline-text">SKY LOUNGE</span>
             </h1>
             <p className="about-description mt-3">
          Step into a world where every detail is designed for your enjoyment. From signature drinks to electrifying beats, we create unforgettable moments. Indulge in the atmosphere, celebrate with friends, and make every night extraordinary.
@@ -214,6 +214,7 @@ Relax, unwind, and immerse yourself in an atmosphere of style and excitement. Fr
         </Container>
       </div>
     </section>
+  
     </>
   );
 };

@@ -220,6 +220,7 @@ body {
     border-bottom: 2px solid var(--dark-bg);
     padding-bottom: 2px;
     transition: color 0.3s;
+    
 }
 
 .see-all-link:hover {
@@ -250,8 +251,10 @@ body {
 }
 
 .event-card-wrapper:hover {
-    /* transform: translateY(-5px); Lift effect on hover */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+     transform: scale(1.03);
+       color: var(--accent-indigo);
+    /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); */
 }
 
 /* Event Card Content */
@@ -274,11 +277,6 @@ body {
     display: flex;
     align-items: flex-end;
     transition: transform 0.3s ease-in-out;
-}
-
-.event-card-wrapper:hover {
-    /* .event-card-bg  */
-    transform: scale(1.03); 
 }
 
 .event-card-overlay {
@@ -322,9 +320,6 @@ body {
     transition: color 0.3s;
 }
 
-.event-card-wrapper:hover .event-artist {
-    color: var(--accent-indigo);
-}
 
 .event-set {
     font-size: 1rem;

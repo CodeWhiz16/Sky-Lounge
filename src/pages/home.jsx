@@ -1,8 +1,11 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom'; // ✅ 1. ADDED LINK IMPORT
+
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { Play, Pause } from 'lucide-react'; 
 import '../style/home.css';
-import Navbar from '../componentS/header';
+
+
 //event image //
 import EMONITE from '../assets/event/EMONITE.png';
 import KASKADE from '../assets/event/KASKADE.png';
@@ -14,16 +17,18 @@ const HeroVideoSource = './hero-video.mp4';
 
 // Sample data for the event cards
 const eventsData = [
-    { id: 1, day: 'FRI OCT 27', artist: 'EMO NITE', set: 'GRAVE RAVE SET', bgImage: `url(${EMONITE})` },
-    { id: 2, day: 'SAT OCT 28', artist: 'KASKADE', set: 'NIGHTCLUB SET', bgImage: `url(${KASKADE})` },
-    { id: 3, day: 'THU NOV 02', artist: 'SICKICK', set: 'MYSTERY SET', bgImage: `url(${SICKICK})` },
-    { id: 4, day: 'FRI NOV 03', artist: 'IAN ASHER', set: 'FUTURE HOUSE', bgImage: `url(${IANASHER})` },
-    { id: 5, day: 'SAT NOV 04', artist: 'SPECIAL GUEST', set: 'ZOUK NIGHTCLUB', bgImage: `url(${SPECIALGUEST})` },
-    { id: 6, day: 'FRI NOV 10', artist: 'TIESTO', set: 'FESTIVAL SET', bgImage: `url(${TIESTO})` },
+    // ✅ 2. ADDED SLUGS
+    { id: 1, day: 'FRI OCT 27', artist: 'EMO NITE', set: 'GRAVE RAVE SET', bgImage: `url(${EMONITE})`, slug: 'emo-nite' },
+    { id: 2, day: 'SAT OCT 28', artist: 'KASKADE', set: 'NIGHTCLUB SET', bgImage: `url(${KASKADE})`, slug: 'kaskade' },
+    { id: 3, day: 'THU NOV 02', artist: 'SICKICK', set: 'MYSTERY SET', bgImage: `url(${SICKICK})`, slug: 'sickick' },
+    { id: 4, day: 'FRI NOV 03', artist: 'IAN ASHER', set: 'FUTURE HOUSE', bgImage: `url(${IANASHER})`, slug: 'ian-asher' },
+    { id: 5, day: 'SAT NOV 04', artist: 'SPECIAL GUEST', set: 'ZOUK NIGHTCLUB', bgImage: `url(${SPECIALGUEST})`, slug: 'special-guest' },
+    { id: 6, day: 'FRI NOV 10', artist: 'TIESTO', set: 'FESTIVAL SET', bgImage: `url(${TIESTO})`, slug: 'tiesto' },
 ];
 
 // Helper component for a single event card
-const EventCard = ({ day, artist, set, bgImage }) => (
+// ✅ 3. ADDED 'slug' TO PROPS LIST
+const EventCard = ({ day, artist, set, bgImage, slug }) => (
     <div className="event-card-wrapper">
         <div className="event-card">
             <div className="event-card-bg" style={{ backgroundImage: bgImage }}>
@@ -36,9 +41,12 @@ const EventCard = ({ day, artist, set, bgImage }) => (
                     </div>
                 </div>
             </div>
-            <Button className="event-book-button" onClick={() => console.log(`Booking for ${artist}`)}>
-                BOOK NOW
-            </Button>
+            {/* ✅ BOOK NOW LINK */}
+            <Link to={`/event/${slug}`} className="event-book-button-link"> 
+                <Button className="event-book-button" onClick={(e) => e.stopPropagation()}>
+                    BOOK NOW
+                </Button>
+            </Link>
         </div>
     </div>
 );
@@ -61,7 +69,7 @@ const Home = () => {
   
   return (
     <>
-   <Navbar />
+   {/* <Navbar /> */}
     <div>
       {/* 1. Hero Section */}
       <div className="hero-section" id="hero-section">
@@ -126,10 +134,16 @@ const Home = () => {
           <div className="events-carousel">
               {eventsData.map(event => (
                   <EventCard key={event.id} {...event} />
+                  
               ))}
           </div>
           
-          <div className="see-event"> <a href="#full-calendar" className="see-all-link">SEE ALL EVENTS </a></div>
+          {/* ✅ SEE ALL EVENTS LINK */}
+          <div className="see-event"> 
+              <Link to="/events" className="see-all-link">
+                  SEE ALL EVENTS 
+              </Link>
+          </div> 	 	 	
       </div>
           {/* 2. Introduction Section (Banner with BG Image) */}
       <div className="intro-section">
@@ -141,8 +155,8 @@ const Home = () => {
                   </Col>
               </Row>
           </Container>
-      </div>  
-  
+      </div> 	
+ 
       {/* 4. Our Services Section */}
       <div className="services-section">
           <Container>
@@ -203,7 +217,9 @@ const Home = () => {
       </div>
 
     </div>
+   
     </>
+    
   );
 };
 
