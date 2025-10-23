@@ -3,14 +3,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import { FaShieldAlt, FaVideo, FaMedkit, FaSearch, FaHandSparkles, FaFireExtinguisher } from 'react-icons/fa';
 import { FaFacebookF, FaYoutube, FaSoundcloud, FaGlobe } from 'react-icons/fa';
 import '../style/about.css';
-import Navbar from '../componentS/header';
-import Footer from  '../components/footer';
+
 //images//
 import ourStoryImage from '../assets/event/Aboutstory.png';
 import djZeeImage from '../assets/DJs/dj1.png'; 
 import djRheaImage from '../assets/DJs/dj2.png';
 import djKaiImage from '../assets/DJs/dj3.png'; 
 import djShivaayImage from '../assets/DJs/dj4.png';
+import Aboutimg from '../assets/event/about1.png';
 const AboutSection = () => {
     const djData = [
   { 
@@ -62,7 +62,7 @@ const AboutSection = () => {
               <Col xs={12}>
                 <div className="about-image bottom-image">
                   <img
-                    src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=800&q=80"
+                    src={Aboutimg}
                     alt="DJ stage"
                     className="img-fluid rounded shadow-lg"
                   />

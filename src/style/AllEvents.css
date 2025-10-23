@@ -44,8 +44,9 @@
 
 .events-title-outline { /* For the outlined 'EVENTS' */
     color: transparent;
-    -webkit-text-stroke: 2px var(--text-light);
-    text-stroke: 2px var(--text-light);
+    /* -webkit-text-stroke: 2px var(--text-light);
+    text-stroke: 2px var(--text-light); */
+    color: var(--text-light);
     display: block; 
     margin-top: -10px;
 }

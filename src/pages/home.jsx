@@ -127,7 +127,7 @@ const Home = () => {
       <div className="events-section" id="events">
           <Container className="events-header">
             <p className="services-subtitle">Our events</p>
-              <h2 className="section-title">UPCOMING EVENTS</h2>
+              <h2 className="section-title1">UPCOMING EVENTS</h2>
               
           </Container>
          

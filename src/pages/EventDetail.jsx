@@ -1,20 +1,36 @@
 import React, { useRef } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Clock, MapPin, Tag, Calendar, ChevronDown } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom'; // { changed code }
 import '../style/eventDetail.css'; 
 
 // Import images (Example for DJ Dominique)
 import eventHeroImage from '../assets/event/IANASHER.png'; // Placeholder for the hero banner (Screenshot 2025-10-21 105239.jpg)
 
 const EventDetail = () => {
-    // Ref to the main detail section for smooth scrolling
     const detailSectionRef = useRef(null);
+    const navigate = useNavigate(); // { changed code }
+    const location = useLocation(); // { changed code }
+
+    // prefer event passed via state, fallback to local defaults
+    const eventData = location.state?.event || {
+        title: 'DJ IANASHER - Future House Set',
+        date: 'DEC 16, 2025',
+        time: '9:00 PM - 3:00 AM',
+        location: 'Sky Lounge Main Floor',
+        slug: 'dj-ianasher'
+    }; // { changed code }
 
     const scrollToDetails = () => {
         if (detailSectionRef.current) {
             detailSectionRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    const goToBuyTickets = () => {
+        // navigate to /buy-tickets and pass event data via state
+        navigate('/buy-tickets', { state: { event: eventData } });
+    }; // { changed code }
 
     return (
         <div className="event-detail-page">
@@ -33,8 +49,7 @@ const EventDetail = () => {
 Step into a world of music, luxury, and excitement. From handcrafted cocktails to electrifying beats, every moment is designed for your enjoyment. Make memories that last long after the night ends.                    </p>
 
                     <div className="hero-cta-buttons">
-                        <Button className="btn-buy-tickets">BUY TICKETS</Button>
-                        {/* Event Details button - triggers scroll */}
+                        <Button className="btn-buy-tickets" onClick={goToBuyTickets}>BUY TICKETS</Button> {/* { changed code } */}
                         <Button 
                             className="btn-event-details" 
                             variant="outline-light" 
@@ -115,7 +130,7 @@ Step into a vibrant space where music, lights, and energy come together. From ha
                                     </div>
                                 </div>
 
-                                <Button className="btn-buy-tickets-box">BUY TICKETS</Button>
+                                <Button className="btn-buy-tickets-box" onClick={goToBuyTickets}>BUY TICKETS</Button> {/* { changed code } */}
                             </div>
                         </Col>
                     </Row>

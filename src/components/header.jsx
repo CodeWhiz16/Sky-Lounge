@@ -1,109 +1,145 @@
 import { useState } from 'react';
 import { Navbar, Nav, Container, Offcanvas, Button } from 'react-bootstrap';
-import { ChevronDown, Menu, X } from 'lucide-react'; // Import icons
-import '../style/header.css'; // New CSS file for Navbar
-// Removed image imports
+import { Link, useLocation } from 'react-router-dom'; 
+import { ChevronDown, Menu, X } from 'lucide-react';
+import '../style/header.css';
 
 const AppNavbar = () => {
-    const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false); // Mobile MORE dropdown
+  const location = useLocation();
 
-    const handleOffcanvasToggle = () => setShowOffcanvas((prev) => !prev);
-    const handleOffcanvasClose = () => setShowOffcanvas(false);
+  const handleOffcanvasToggle = () => setShowOffcanvas((prev) => !prev);
+  const handleOffcanvasClose = () => {
+    setShowOffcanvas(false);
+    setMoreOpen(false);
+  };
 
-    // For now, simply close offcanvas on any nav link click
-    const handleNavLinkClick = () => {
-        handleOffcanvasClose();
-    };
+  // Navbar links and dropdowns
+  const links = [
+    { name: 'EVENT CALENDAR', path: '/events' },
+    { name: 'PRIVATE EVENTS', path: '/private-events' },
+    { name: 'VIP SERVICES', path: '/vip-services' },
+    { name: 'BOOK A TABLE', path: '/book-table' },
+    { name: 'CONTACT', path: '/contact' },
+    {
+      name: 'MORE',
+      path: '/more',
+      dropdown: [
+        { name: 'About', path: '/about' },
+        { name: 'FAQ', path: '/faq' }
+      ]
+    },
+  ];
 
-    return (
-        <>
-            <Navbar expand="lg" variant="dark" fixed="top" className="app-navbar">
-                <Container>
-                    {/* Brand Logo for Desktop (Text) */}
-                    <Navbar.Brand href="#home" className="d-none d-lg-block skylounge-text-logo">
-                        SKY LOUNGE
-                    </Navbar.Brand>
+  const isActive = (path) => location.pathname === path;
 
-                    {/* Mobile Only: Burger Menu Toggler */}
-                    <Navbar.Toggle 
-                        aria-controls="offcanvasNavbar" 
-                        className="d-lg-none menu-toggler"
-                        onClick={handleOffcanvasToggle}
-                    >
-                        <Menu size={24} color="var(--text-light)" />
-                    </Navbar.Toggle>
+  const isDropdownActive = (dropdown) => {
+    if (!dropdown) return false;
+    return dropdown.some(item => item.path === location.pathname);
+  };
 
-                    {/* Desktop Navigation Links */}
-                    <Navbar.Collapse id="basic-navbar-nav" className="d-none d-lg-flex justify-content-center">
-                        <Nav className="mx-auto"> {/* Centering the nav links */}
-                            <Nav.Link href="#events" className="nav-item">EVENT CALENDAR</Nav.Link>
-                            <Nav.Link href="#vip" className="nav-item">VIP SERVICES</Nav.Link>
-                            <Nav.Link href="#tickets" className="nav-item">TICKETS</Nav.Link>
-                            <Nav.Link href="#venues" className="nav-item dropdown-nav-item">
-                                VENUES <ChevronDown size={16} className="ms-1" />
-                            </Nav.Link>
-                            <Nav.Link href="#private-events" className="nav-item dropdown-nav-item">
-                                PRIVATE EVENTS <ChevronDown size={16} className="ms-1" />
-                            </Nav.Link>
-                            <Nav.Link href="#more" className="nav-item dropdown-nav-item">
-                                MORE <ChevronDown size={16} className="ms-1" />
-                            </Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+  return (
+    <>
+      {/* Desktop Navbar */}
+      <Navbar expand="lg" variant="dark" fixed="top" className="app-navbar">
+        <Container className="p-0">
+          {/* Logo */}
+          <Navbar.Brand as={Link} to="/" className="skylounge-text-logo me-auto">
+            SKY LOUNGE
+          </Navbar.Brand>
 
-            {/* Offcanvas for Mobile Navigation */}
-            <Offcanvas 
-                show={showOffcanvas} 
-                onHide={handleOffcanvasClose} 
-                placement="end" 
-                className="mobile-offcanvas"
-            >
-                <Offcanvas.Header className="mobile-offcanvas-header">
-                    {/* Sky Lounge Text Logo for Mobile Header (replaces Zouk Group logo) */}
-                    <div className="skylounge-text-logo mobile-header-logo">
-                        SKY LOUNGE
+          {/* Hamburger (Mobile) */}
+          <Button
+            className="d-lg-none hamburger-btn"
+            onClick={handleOffcanvasToggle}
+            variant="link"
+          >
+            <Menu size={28} color="white" />
+          </Button>
+
+          {/* Desktop Links */}
+          <Navbar.Collapse className="d-none d-lg-flex justify-content-center">
+            <Nav className="mx-auto">
+              {links.map((link) => (
+                <Nav.Link
+                  key={link.name}
+                  as={link.dropdown ? 'div' : Link}
+                  to={link.path}
+                  className={`nav-item ${isActive(link.path) || isDropdownActive(link.dropdown) ? 'active-link' : ''}`}
+                >
+                  {link.name} {link.dropdown && <ChevronDown size={14} className="ms-1" />}
+                  
+                  {/* Desktop dropdown */}
+                  {link.dropdown && (
+                    <div className="dropdown-menu-custom">
+                      {link.dropdown.map((item) => (
+                        <Link
+                          key={item.name}
+                          to={item.path}
+                          className={`dropdown-item-custom ${isActive(item.path) ? 'active-link' : ''}`}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
                     </div>
-                    {/* Close button at the top right */}
-                    <Button variant="link" onClick={handleOffcanvasClose} className="close-offcanvas-btn">
-                        <X size={24} color="var(--text-light)" />
-                    </Button>
-                </Offcanvas.Header>
-                <Offcanvas.Body className="mobile-offcanvas-body">
-                    <Nav className="flex-column text-center mobile-nav-links">
-                        <Nav.Link href="#events" className="nav-item-mobile" onClick={handleNavLinkClick}>
-                            EVENT CALENDAR <ChevronDown size={20} className="ms-2" />
-                        </Nav.Link>
-                        <Nav.Link href="#vip" className="nav-item-mobile" onClick={handleNavLinkClick}>VIP SERVICES</Nav.Link>
-                        <Nav.Link href="#tickets" className="nav-item-mobile" onClick={handleNavLinkClick}>TICKETS</Nav.Link>
-                        <Nav.Link href="#venues" className="nav-item-mobile" onClick={handleNavLinkClick}>
-                            VENUES <ChevronDown size={20} className="ms-2" />
-                        </Nav.Link>
-                        <Nav.Link href="#private-events" className="nav-item-mobile" onClick={handleNavLinkClick}>
-                            PRIVATE EVENTS <ChevronDown size={20} className="ms-2" />
-                        </Nav.Link>
-                        <Nav.Link href="#more" className="nav-item-mobile" onClick={handleNavLinkClick}>
-                            MORE <ChevronDown size={20} className="ms-2" />
-                        </Nav.Link>
-                    </Nav>
+                  )}
+                </Nav.Link>
+              ))}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
-                    {/* Social links & Contact Info for Mobile */}
-                    <div className="mobile-footer-links text-center mt-auto">
-                        <Nav.Link href="#contact" onClick={handleNavLinkClick}>CONTACT US</Nav.Link>
-                        <Nav.Link href="#news" onClick={handleNavLinkClick}>NEWS</Nav.Link>
-                        <Nav.Link href="#artists" onClick={handleNavLinkClick}>ARTISTS</Nav.Link>
-                        <div className="social-icons-mobile mt-4">
-                            {/* Placeholder for social icons */}
-                            <a href="#facebook" className="social-icon-mobile">FB</a>
-                            <a href="#mail" className="social-icon-mobile">MAIL</a>
-                            <a href="#instagram" className="social-icon-mobile">IG</a>
-                        </div>
-                    </div>
-                </Offcanvas.Body>
-            </Offcanvas>
-        </>
-    );
+      {/* Mobile Sidebar */}
+      <Offcanvas
+        show={showOffcanvas}
+        onHide={handleOffcanvasClose}
+        placement="end"
+        className="mobile-offcanvas"
+      >
+        <Offcanvas.Header className="mobile-offcanvas-header">
+          <div className="mobile-header-logo">SKY LOUNGE</div>
+          <Button variant="link" onClick={handleOffcanvasClose} className="close-offcanvas-btn">
+            <X size={28} color="white" />
+          </Button>
+        </Offcanvas.Header>
+
+        <Offcanvas.Body className="mobile-offcanvas-body">
+          <Nav className="flex-column text-center mobile-nav-links">
+            {links.map((link) => (
+              <div key={link.name} className="mobile-link-container">
+                <Nav.Link
+                  as={link.dropdown ? 'div' : Link}
+                  to={link.path}
+                  className={`nav-item-mobile ${isActive(link.path) || isDropdownActive(link.dropdown) ? 'active-link' : ''}`}
+                  onClick={link.dropdown ? () => setMoreOpen(!moreOpen) : handleOffcanvasClose}
+                >
+                  {link.name} {link.dropdown && <ChevronDown size={18} className="ms-1" />}
+                </Nav.Link>
+
+                {/* Mobile dropdown */}
+                {link.dropdown && moreOpen && (
+                  <div className="mobile-dropdown">
+                    {link.dropdown.map((item) => (
+                      <Link
+                        key={item.name}
+                        to={item.path}
+                        className={`mobile-dropdown-item ${isActive(item.path) ? 'active-link' : ''}`}
+                        onClick={handleOffcanvasClose}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </Nav>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
 };
 
 export default AppNavbar;

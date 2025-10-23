@@ -95,7 +95,8 @@ const Footer = () => {
                 <Row>
                     <Col className="footer-bottom">
                         <p>&copy; {new Date().getFullYear()} Sky Lounge / Eskobar. All Rights Reserved.</p>
-                        <p className="powered-by">Built with ❤️ by the Inovite Team</p>
+                       <p className="powered-by">Built with ❤️ by the <a href="https://inovite.in" target="blank" rel="noopener noreferrer">Inovite Team</a>
+</p>
                     </Col>
                 </Row>
             </Container>
