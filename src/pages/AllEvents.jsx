@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import '../style/allEvents.css'; // Import the CSS for this page
+import '../style/AllEvents.css'; // Import the CSS for this page
 import { ArrowRight } from 'lucide-react'; // Using Lucide icon for the button
 
 // 🚨 IMPORTANT: Replace these with your actual image imports from src/assets/event/

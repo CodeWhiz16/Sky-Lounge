@@ -124,7 +124,7 @@
         1px 1px 0 #fff;
     color: transparent;
     -webkit-text-stroke: 1.5px var(--text-light);
-    text-stroke: 1.5px var(--text-light);
+    /* text-stroke: 1.5px var(--text-light); */
 }
 /* Revert to solid white for better readability */
 .event-title-card {
