@@ -5,9 +5,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Pages
 import Home from './pages/home';
 import About from './pages/About';
-import Footer from './components/footer';
-import Navbar from './components/header'; // keep your existing import
-import ScrollToTop from './components/ScrollToTop';
 import Event from './pages/AllEvents';
 import EventDetail from './pages/EventDetail';
 // import BuyTickets from './pages/BuyTickets';
