@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { FaShieldAlt, FaVideo, FaMedkit, FaSearch, FaHandSparkles, FaFireExtinguisher } from 'react-icons/fa';
 import { FaFacebookF, FaYoutube, FaSoundcloud, FaGlobe } from 'react-icons/fa';
-import '../style/about.css';
+import '../style/About.css';
 
 //images//
 import ourStoryImage from '../assets/event/Aboutstory.png';
