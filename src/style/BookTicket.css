@@ -1,0 +1,223 @@
+.book-ticket-section {
+  background:  #000000;
+  color: #f8fafc;
+  min-height: 100vh;
+  padding: 60px 0;
+}
+
+.page-title {
+   font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.page-subtitle {
+  text-align: center;
+  color:whitesmoke;
+  font-size: 1.1rem;
+}
+
+.page-subtitle span {
+  color: #a5b4fc;
+  font-weight: 600;
+}
+
+.ticket-card,
+.summary-card {
+    margin-bottom: 2rem;
+  background:rgba(255,255,255,0.03);
+  border: 1px solid rgba(78, 70, 229, 0.197);
+  border-radius: 15px;
+  padding: 25px;
+  color: #f1f5f9;
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.15);
+}
+
+.section-title {
+  font-weight: 600;
+  color:white;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.tier-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tier-option {
+  background: #111827;
+  border: 1px solid #334155;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.tier-option.active {
+  border: 1px solid #4e46e5b6;
+  box-shadow: 0 0 15px rgba(78, 70, 229, 0.284);
+}
+
+.tier-name {
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+.tier-price {
+  color: #818cf8;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.counter button {
+  background: #4f46e5;
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.counter button:hover {
+  background: #6366f1;
+}
+
+.pay-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #4f46e5, #818cf8);
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.pay-btn:hover {
+  opacity: 0.9;
+}
+
+.secure-text {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.summary-card {
+  height: 25rem;
+}
+
+.summary-item {
+  background: #111827;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.item-name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.item-detail {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.item-price {
+  text-align: right;
+  font-weight: 600;
+  color: #818cf8;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.summary-line.total {
+  color: #4f46e5;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.trending-section {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.trending-title {
+  font-size: 1.6rem;
+  color: #a5b4fc;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trending-card {
+  background: #1e293b;
+  border: 1px solid rgba(79, 70, 229, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.trending-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.5);
+}
+
+.trending-img {
+  background-size: cover;
+  background-position: center;
+  height: 160px;
+  border-bottom: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+.trending-card h6 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.trending-card p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.view-btn {
+  background: linear-gradient(90deg, #4f46e5, #818cf8);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.view-btn:hover {
+  opacity: 0.9;
+}

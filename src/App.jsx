@@ -7,7 +7,7 @@ import Home from './pages/home';
 import About from './pages/About';
 import Event from './pages/AllEvents';
 import EventDetail from './pages/EventDetail';
-// import BuyTickets from './pages/BuyTickets';
+ import BuyTickets from './pages/BookTicket';
 import PrivateEvents from './pages/PrivateEvents';
 
 // Components
@@ -35,7 +35,7 @@ function App() {
         <Route path="/event/:slug" element={<EventDetail />} />
 
         
-        {/* <Route path="/buy-tickets" element={<BuyTickets />} /> */}
+        <Route path="/buy-tickets" element={<BuyTickets />} />
 
 
         <Route path="/private-events" element={<PrivateEvents />} />
