@@ -12,7 +12,7 @@
     background-color: var(--color-black-primary); 
     color: var(--text-muted); 
     padding: 4rem 0 2rem 0; 
-    border-top: 5px solid var(--accent-indigo); /* Top line matching the theme */
+    border-top: 2px solid var(--accent-indigo); /* Top line matching the theme */
     font-family: 'Inter', sans-serif;
 }
 

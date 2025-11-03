@@ -22,12 +22,14 @@ const AppNavbar = () => {
     { name: 'VIP SERVICES', path: '/vip-services' },
     { name: 'BOOK A TABLE', path: '/book-table' },
     { name: 'CONTACT', path: '/contact' },
+     
     {
       name: 'MORE',
       path: '/more',
       dropdown: [
         { name: 'About', path: '/about' },
-        { name: 'FAQ', path: '/faq' }
+        { name: 'FAQ', path: '/faq' },
+        { name: 'Admin', path: '/Admin' }
       ]
     },
   ];

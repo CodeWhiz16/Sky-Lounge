@@ -1,0 +1,54 @@
+.success-tick-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4); /* semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.success-tick {
+  width: 120px;
+  height: 120px;
+  stroke: #1e88e5; /* blue color */
+  stroke-width: 4;
+  stroke-miterlimit: 10;
+  animation: pop 0.5s ease forwards;
+}
+
+.success-tick-circle {
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  stroke-width: 4;
+  stroke: #1e88e5;
+  stroke-linecap: round;
+  fill: none;
+  animation: dash-circle 0.5s ease forwards;
+}
+
+.success-tick-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 4;
+  stroke: #1e88e5;
+  stroke-linecap: round;
+  animation: dash-check 0.5s 0.5s ease forwards;
+}
+
+@keyframes dash-circle {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes dash-check {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  80% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}

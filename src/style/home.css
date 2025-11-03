@@ -100,7 +100,34 @@ body {
     box-shadow: 0 0 10px var(--accent-indigo);
     transform: scale(1.1);
 }
+/* --- New Mute/Unmute Button Style --- */
+.mute-control-button {
+    /* Position it absolutely within the relative hero-section */
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100; /* Ensure it's above the video and overlay */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%; /* Make it circular */
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
 
+.mute-control-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure the hero-section is the positioning context */
+.hero-section {
+    position: relative; 
+    /* ... existing hero styles ... */
+}
 @media (max-width: 768px) {
     .hero-headline {
         font-size: 3rem;
@@ -115,12 +142,136 @@ body {
         height: 50px;
     }
 }
+/* --- 1. ABOUT SECTION  CSS --- */
+
+.about-section {
+    background-color: var(--dark-bg); /* Black background for the entire section */
+    color: var(--text-light);
+    padding: 0;
+}
+
+/* 1. Column Constraints (Desktop Height Control) */
+.about-image-col {
+    /* Constrain height on desktop to create the side-by-side look */
+    max-height: 500px; 
+    overflow: hidden;
+}
+
+.about-image {
+    width: 100%;
+    height: 100%; /* Fill constrained height */
+    object-fit: cover;
+    min-height: 400px;
+}
+
+.about-content-col {
+    /* Background gradient for the text column (from images) */
+    background: linear-gradient(to right, #000000, #14081c);
+    display: flex;
+    align-items: center; /* Vertically centers content on desktop */
+}
+
+.about-content-wrapper {
+    padding: 45px 70px;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    
+}
+
+.about-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.about-title-main {
+    font-size: 3rem; 
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.about-title-main .text-accent {
+    color: var(--accent-indigo); /* Used for the "Pune" accent color */
+}
+
+.about-description {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.about-description-secondary {
+    font-size: 0.95rem;
+    color: #cccccc;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.about-stats-row {
+    display: flex;
+    gap: 30px; 
+    padding-top: 10px;
+}
+
+.about-stat {
+    text-align: left;
+}
+
+.about-stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--accent-indigo);
+}
+
+.about-stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS (FOR MOBILE VIEW) --- */
 
 
+@media (max-width: 992px) {
+    
+    /* Image Column Height Fix */
+    .about-image-col {
+        /* Relax Max Height when stacked on mobile/tablet */
+        max-height: 400px; 
+    }
+    
+    /* Content Wrapper Adjustments */
+    .about-content-wrapper {
+        padding: 40px 30px; 
+        text-align: center; /* Center the text when the columns stack */
+    }
+    
+    /* Stat Row Adjustments */
+    .about-stats-row {
+        /* Center stats on mobile when stacked */
+        justify-content: center;
+    }
+
+    .about-stat {
+        /* Center individual stat content on mobile */
+        text-align: center;
+    }
+}
 /* --- Introduction Section Styles (Banner Look with BG Image) --- */
 .intro-section {
     /* Background image and its properties */
-    background-image: url('../assets/event/background.png'); /* !!! IMPORTANT: REPLACE WITH YOUR IMAGE PATH !!! */
+    background-image: url('../assets/event/background.png'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Parallax scrolling effect */
@@ -174,108 +325,146 @@ body {
 
 }
 
-
-/* --- NEW Upcoming Events Section Styles --- */
+/* --- Upcoming Events Section Styles (No Change) --- */
 .events-section {
-    background-color:black; /* Light background to contrast with dark sections */
+    background-color: rgba(15, 14, 14, 0.826);
     padding: 3rem 0;
     color: var(--dark-bg);
 }
 
 .events-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     justify-content: center;
-    
     margin-bottom: 5rem;
-    padding: 0 1rem; /* Adjust padding for container */
+    padding: 0 1rem;
     text-align: center;
-    flex-direction: column; 
-    
+    flex-direction: column;
+}
+
+.services-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .section-title1 {
-    /* font-size: 2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: white; */
-      font-size: 3rem;
+    font-size: 3rem;
     font-weight: 800;
     line-height: 1.1;
     text-transform: uppercase;
     color: var(--text-light);
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
+/* --- Re-styled SEE ALL EVENTS Link as a Button --- */
+
 .see-event {
     text-align: center;
-    margin-top: 1rem;
-}
-.see-all-link {
-    font-family:  'Inter', sans-serif;
-    color:var( --accent-indigo);
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 2px solid var(--dark-bg);
-    padding-bottom: 2px;
-    transition: color 0.3s;
     
+    margin-top: 2rem; 
+    margin-bottom: 1rem;
 }
 
+.see-all-link {
+    
+    text-decoration: none;
+    border-bottom: none;
+    padding-bottom: 0;
+    display: inline-block; /* Essential to allow padding/width */
+    padding: 10px 35px;
+    background-color: #818df8c6;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle internal border */
+    border-radius: 10px;
+    
+    /* Text Styles */
+    color: var(--text-light); /* White text */
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 500;
+     /* Slight letter spacing */
+    
+    /* Transition for hover effect */
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect: Only slightly enhance the glow, no background change */
 .see-all-link:hover {
-    color: var(--accent-indigo);
-    border-bottom-color: var(--accent-indigo);
+    background-color: #818df8c6 !important;
+    background-color: #0d0d0d; /* Ensure background stays dark */
+    color: white; 
+    
+    /* Stronger, more intense glow */
+   box-shadow: 
+        0 0 0 1px #818df8, /* Thin inner border glow */
+        0 0 10px rgba(129, 141, 248, 0.6); /* Soft outer glow */
+    
+    transition: all 0.3s ease;
+       
+    /* Optional: Slight lift */
+    transform: translateY(-1px);
 }
 
-/* Carousel/Horizontal Scroll Styling */
+/* Responsive adjustment */
+@media (max-width: 600px) {
+    .see-all-link {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+}
+/* Carousel/Horizontal Scroll Styling (No Change) */
 .events-carousel {
     display: flex;
-    overflow-x: auto; /* Enables horizontal scrolling */
-    padding: 0 1rem 1.5rem 1rem; /* Padding for scroll visibility and spacing */
+    overflow-x: auto;
+    padding: 0 1rem 1.5rem 1rem;
     gap: 1.5rem;
-    -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
-    /* Hide scrollbar, but keep functionality */
-    scrollbar-width: none; 
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     -ms-overflow-style: none;
 }
 .events-carousel::-webkit-scrollbar {
     display: none;
 }
 
-/* Individual Card Wrapper */
+/* --- Individual Event Card Styles --- */
+
 .event-card-wrapper {
-    flex: 0 0 auto; /* Prevents cards from shrinking */
-    width: 300px; /* Fixed width for card */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-top:2px;
+    flex: 0 0 auto;
+    width: 300px;
+    transition: box-shadow 0.3s ease-in-out; 
+    border-radius: 5px; 
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+/* ✅ CARD HOVER EFFECT: Simple Border Glow (2px) */
 .event-card-wrapper:hover {
-    transform: translateY(-5px);
-     transform: scale(1.03);
-       color: var(--accent-indigo);
-    /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); */
+    transform: scale(1.03);
 }
 
-/* Event Card Content */
 .event-card {
     background-color: var(--dark-bg);
-    border-radius: 5px;
+    /* Ensure the card maintains its radius */
+    border-radius: 5px; 
     overflow: hidden;
     color: var(--text-light);
     display: flex;
     flex-direction: column;
     height: 100%;
+    /* Subtle initial border for card separation */
+    border: 1px solid rgba(138, 43, 226, 0.2); 
+    transition: border-color 0.3s ease;
 }
 
 .event-card-bg {
     width: 100%;
-    height: 400px; 
+    height: 400px;
     background-size: cover;
     background-position: center;
     position: relative;
     display: flex;
-    align-items: flex-end;
+    /* Revert to original: align-items: flex-end */
+    align-items: flex-end; 
     transition: transform 0.3s ease-in-out;
 }
 
@@ -289,18 +478,25 @@ body {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* Revert to original: justify-content: space-between */
+    justify-content: space-between; 
 }
 
+/* Revert label styling to original structure */
 .event-label {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--text-muted);
+    /* Revert margin to original */
+    margin-bottom: 0;
+    text-align: left; /* Revert alignment */
+    position: static; /* Revert positioning */
 }
 
 .event-info {
-    text-align: left;
+    text-align: left; /* Revert alignment */
+    margin-bottom: 0; 
 }
 
 .event-day {
@@ -309,6 +505,7 @@ body {
     color: var(--accent-indigo);
     display: block;
     margin-bottom: 0.25rem;
+    font-weight: 500; /* Revert weight */
 }
 
 .event-artist {
@@ -317,9 +514,8 @@ body {
     line-height: 1.2;
     margin: 0;
     text-transform: uppercase;
-    transition: color 0.3s;
+    color: var(--text-light);
 }
-
 
 .event-set {
     font-size: 1rem;
@@ -328,30 +524,74 @@ body {
     display: block;
 }
 
+/* --- BOOK NOW Button Inside Card --- */
+
+.event-book-button-link {
+    background-color: black !important;
+    display: block;
+    padding: 0.75rem 1rem; 
+    background-color: var(--dark-bg);
+
+}
+
 .event-book-button {
     width: 100%;
     border: none;
-    background-color: black !important;
+    background-color: black !important; 
     color: white !important;
     font-weight: 700;
-    padding: 1rem 0;
-    border-radius:5px;
-    transition: background-color 0.3s, color 0.3s;
-    border: 1px solid var(--accent-indigo)  ;
+    padding: 0.8rem 0;
+    border-radius: 5px;
+    /* Transition all relevant properties */
+    transition: all 0.3s ease;
+    /* border: 1px solid rgba(138, 43, 226, 0.5);  */
+    border:2px solid var(--accent-indigo); 
 }
 
+/* ✅ BUTTON HOVER EFFECT: ONLY Glow, NO Fill Change */
 .event-book-button:hover {
-    background-color: var(--accent-indigo) !important;
-    color:black !important;
+    /* Keep background color the same (black) */
+    background-color: black !important; 
+   color: white !important; 
+    box-shadow: 0 0 2px var(--accent-indigo), 0 0 25px  #818cf2b3; 
 }
 
-/* Responsive adjustments for the event cards */
+
+/* --- BUY TICKETS BUTTON  --- */
+.buy-tickets-link {
+    text-decoration: none;
+}
+
+.buy-tickets-button {
+    background-color: var(--accent-yellow) !important;
+    color: var(--text-dark-on-yellow) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 15px 40px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.buy-tickets-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* --- Responsive Adjustments --- */
 @media (max-width: 600px) {
     .event-card-wrapper {
-        width: 80vw; /* Takes 80% of viewport width on small screens */
+        width: 80vw;
+    }
+    .buy-tickets-button {
+        padding: 12px 30px !important;
+        font-size: 1rem !important;
     }
 }
-
 /* --- our services--- */
 
 .services-section {
